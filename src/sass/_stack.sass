@@ -1,0 +1,95 @@
+html, body
+  position: relative
+  height: 100%
+  width: 100%
+  margin: 0
+  font-family: 'Comfortaa', cursive
+  overflow: hidden
+
+.game
+  width: 100%
+  height: 100%
+  &.playing, &.resetting
+    .game
+      &__score
+        transform: translatey(0px) scale(1)
+  &.playing
+    .game
+      &__instructions
+        opacity: 1
+  &.ready
+    .game
+      &__start-button
+        transform: translatey(0)
+        opacity: 1
+  &.ended
+    .game
+      &__score
+        transform: translatey(6vh) scale(1.5)
+      &__game-over
+        *
+          transform: translatey(0)
+          opacity: 1
+        p
+          transition-delay: 0.3s
+  &__canvas
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+  &__score
+    position: absolute
+    top: 20px
+    width: 100%
+    text-align: center
+    color: $color-dark
+    font-size: 10vh
+    transform: translatey(-200px) scale(1)
+    transition: transform 0.5s ease
+  &__instructions
+    position: absolute
+    top: 16vh
+    left: 0
+    width: 100%
+    text-align: center
+    transition: opacity 0.5s ease, transform 0.5s ease
+    opacity: 0
+  &__game-over
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 85%
+    > *
+      color: $color-dark
+      transform: translatey(-50px)
+      transition: opacity 0.5s ease, transform 0.5s ease
+      opacity: 0
+    > h2
+      margin: 0
+      padding: 0
+      font-size: 40px
+  &__game-ready
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-around
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  &__start-button
+    padding: 10px 20px
+    color: $color-dark
+    font-size: 30px
+    border: 3px solid $color-dark
+    background-color: transparent
+    transform: translatey(-50px)
+    transition: opacity 0.5s ease, transform 0.5s ease
+    opacity: 0
